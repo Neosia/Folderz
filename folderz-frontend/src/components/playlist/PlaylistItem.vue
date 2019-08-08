@@ -1,7 +1,7 @@
 <template>
-    <div class="col-3 playlist-item">
-        <div class="img-playlist">
-            <img src="@/../public/resources/playlist.png"/>
+    <div class="col-2 playlist-item">
+        <div class="img-playlist" @click="$emit('playlistClicked', playlist.id)">
+            <img src="@/../public/resources/playlist.jpg"/>
             <div class="legend">{{playlist.name}}</div>
         </div>
     </div>
@@ -23,26 +23,23 @@
 
 <style>
     .img-playlist{
-        background-color: black;    
-        border-radius: 25px;                    
+        background-color: white;                     
         margin-bottom: 30px;
+        box-shadow: -9px 9px 8px -5px rgba(166,164,166,1);
     }
 
     .img-playlist:hover{
-        background-color: rgb(150, 146, 146);    
-        border-radius: 25px;    
+        opacity: 0.66; 
     }
 
-    img {
+    .img-playlist img {
         width: 100%;
         height: 80%;
-        padding: 5px;
     }
 
     .legend {
-        color: white;
+        color: rgb(255, 145, 0);
         vertical-align: middle;
-        padding: 5px;
-        border-radius: 0px 0px 25px 25px;   
+        padding: 5px; 
     }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <b-navbar type="light">
+    <b-navbar variant="light" type="light">
       <b-navbar-brand href="#">Folderz</b-navbar-brand>      
       <b-collapse id="nav-collapse" is-nav>
         <b-nav>
@@ -20,6 +20,7 @@
             { route: "/", name: "Home" },
             { route: "/about", name: "About" },        
             { route: "/playlist", name: "Playlist" },
+            { route: "/songs", name: "Songs" }
         ]
         };
     },
@@ -34,11 +35,6 @@
         color: black !important;
         font-weight: bold;
         font-size: 2em;
-        padding: 0px;
-    }
-
-    nav {
-        background-color: white;
     }
 
     nav a {

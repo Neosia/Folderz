@@ -1,7 +1,7 @@
 <template>
-    <div class="container playlist-list">
+    <div class="container-fluid playlist-list">
         <div class="row">
-            <PlaylistItem v-for="item in playlists" :key="item.id" :playlist="item">
+            <PlaylistItem v-for="item in playlists" :key="item.id" :playlist="item" @playlistClicked="onPlaylistClick(item.id)">
             </PlaylistItem>
         </div>
     </div>
@@ -19,11 +19,19 @@
                     {id: 3, name: "Night"},
                     {id: 4, name: "Road Trip"},
                     {id: 5, name: "Rock"},
-                    {id: 6, name: "Rap"}
+                    {id: 6, name: "Rap"},
+                    {id: 7, name: "Pop"},   
+                    {id: 8, name: "RnB"},
                 ]
             }
         },
-        components : { PlaylistItem }        
+        components : { PlaylistItem },
+        methods: {
+            onPlaylistClick(idPlaylist) {
+                alert(this.playlists.find(x => x.id === idPlaylist).name);
+            }
+        }
+
     }
 </script>
 
