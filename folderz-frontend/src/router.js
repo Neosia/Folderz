@@ -28,5 +28,11 @@ export default new Router({
       name: 'Songs',
       component: () => import('./views/Songs.vue')
     }
+    ,
+    {
+      path: '/songs/addSong',
+      name: 'New song',
+      component: () => import('./views/AddSong.vue')
+    }
   ]
 })
