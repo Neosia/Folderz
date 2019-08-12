@@ -1,19 +1,19 @@
 import { Controller, Post, Res, Body, HttpStatus, Get } from '@nestjs/common';
-import { CreateSongDTO } from './dto/song.dto';
 import { SongService } from './song.service';
 import { async } from 'rxjs/internal/scheduler/async';
 import { readdirSync } from 'fs';
+import { SongDto } from './song.dto';
+import { Song } from './song.entity';
 
 @Controller('song')
 export class SongController {
     constructor(private songService: SongService) { }
 
     @Post('/new')
-    async addSong(@Res() res, @Body() songDto : CreateSongDTO){
-        const song = this.songService.addSong(songDto);
+    async addSong(@Res() res, @Body() song : Song){
+        this.songService.addSong(song);
         return res.status(HttpStatus.OK).json({
-            message: "Song has been created successfully",
-            song
+            message: "Song has been created successfully"
         });
     }
 

@@ -20,18 +20,18 @@ export default new Router({
     },
     {
       path: '/playlist',
-      name: 'Playlist',
+      name: 'playlist',
       component: () => import('./views/Playlist.vue')
     },
     {
       path: '/songs',
-      name: 'Songs',
+      name: 'songs',
       component: () => import('./views/Songs.vue')
     }
     ,
     {
       path: '/songs/addSong',
-      name: 'New song',
+      name: 'newSong',
       component: () => import('./views/AddSong.vue')
     }
   ]

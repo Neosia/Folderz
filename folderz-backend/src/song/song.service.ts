@@ -1,20 +1,24 @@
 import { Injectable } from '@nestjs/common';
-import { Model } from 'mongoose';
-import { InjectModel } from '@nestjs/mongoose';
-import { Song } from './interfaces/song.interface';
-import { CreateSongDTO } from './dto/song.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Song } from './song.entity';
+
+
 
 @Injectable()
 export class SongService {
-    constructor(@InjectModel('Song') private readonly songModel: Model<Song>) { }
-
-    async addSong(songDto: CreateSongDTO) : Promise<Song> {
-        const newSong = new this.songModel(songDto);
-        return newSong.save();
+    constructor(@InjectRepository(Song) private usersRepository: Repository<Song>) { }
+    
+    //Add a new song to the DB
+    async addSong(song : Song) {
+        this.usersRepository.save(song);
     }
 
-    async getAllSongs() : Promise<Song[]>{
-        const allSongs = await this.songModel.find().exec();
-        return allSongs;
+    //Get all songs from the DB
+    async getAllSongs(): Promise<Song[]> {
+        return this.usersRepository.find();
     }
+
+
+
 }

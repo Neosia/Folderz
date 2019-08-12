@@ -1,11 +1,23 @@
 <template>
     <div class="container formNewSong">
         <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-            <div class="inputs">            
-                <Input :propToBind="form.title" labelText="Title" inputName="title" placeholder="Title ..." type="text"/>     
-                <Input :propToBind="form.artist" labelText="Artist" inputName="artist" placeholder="Artist ..." type="text"/> 
-                <Input :propToBind="form.duration" labelText="Duration" inputName="duration" placeholder="Duration ..." type="text"/> 
-                <Input :propToBind="form.date" labelText="Date" inputName="date" placeholder="Date ..." type="date"/>      
+            <div class="inputs">     
+              <div class="input-group">       
+                <label for="title">Title</label>
+                <input v-model="form.title" name="title" placeholder="Title ..." type="text"/>  
+              </div>   
+              <div class="input-group">
+                <label for="artist">Artist</label>
+                <input v-model="form.artist" name="artist" placeholder="Artist ..." type="text"/> 
+              </div>
+              <div class="input-group">
+                <label for="duration">Duration</label>
+                <input v-model="form.duration" name="duration" placeholder="Duration ..." type="text"/> 
+              </div>
+              <div class="input-group">
+                <label for="date">Date</label>
+                <input v-model="form.date" name="date" placeholder="Date ..." type="date"/>      
+              </div>            
             </div>
             <div class="buttons">
                 <b-button type="reset" variant="danger">Reset</b-button> | 
@@ -15,7 +27,9 @@
   </div>
 </template>
 <script>
-  import Input from '../components/shared/input.vue'
+  import axios from "axios";
+  import { server } from "../helper";
+  import router from "../router";
 
   export default {
     data() {
@@ -29,12 +43,22 @@
         show: true
       }
     },
-    components: { Input },
-    methods: {
-      onSubmit(evt) {
-        evt.preventDefault()
-        alert(JSON.stringify(this.form))
-      },
+    methods: {     
+      onSubmit() {
+      let songData = {
+          title: this.form.title,
+          artist: this.form.artist,
+          duration: this.form.duration,
+          date: this.form.date
+      };
+      this.__submitToServer(songData);
+    },
+    __submitToServer(data) {
+      axios.post(`${server.baseURL}/song/new`, data).then(data => {
+        router.push({ name: "home" });
+      });
+    },
+
       onReset(evt) {
         evt.preventDefault()
         // Reset our form values
@@ -65,5 +89,11 @@
     .formNewSong label{
         text-align: left;
         font-weight: bold;
+    }
+    .buttons {
+      background-color: #f8f9fa;
+      box-shadow: -9px 9px 8px -5px rgba(166,164,166,1);
+      background-color: aliceblue;
+      padding: 30px;
     }
 </style>
