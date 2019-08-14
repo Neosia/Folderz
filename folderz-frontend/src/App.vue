@@ -7,13 +7,18 @@
 
 
 <script>
+import Vue from "vue";
 import NavBar from "./components/nav/NavBar.vue";
 import BootstrapVue from "bootstrap-vue";
+import VModal from 'vue-js-modal';
+import VueYouTubeEmbed from 'vue-youtube-embed'
+
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
-import Vue from "vue";
 
+Vue.use(VueYouTubeEmbed)
 Vue.use(BootstrapVue);
+Vue.use(VModal);
 
 export default {  
   components: {

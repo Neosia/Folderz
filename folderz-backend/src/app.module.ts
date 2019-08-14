@@ -10,7 +10,7 @@ import { SongModule } from './song/song.module';
       "host": "localhost",
       "port": 3306,
       "username": "root",
-      "password": "root",
+      "password": "password",
       "database": "folderz_db",
       "entities": ["src/**/**.entity{.ts,.js}"],
       "synchronize": true

@@ -1,7 +1,6 @@
 export class SongDto {
-    title: string;
-    artist: string;
-    youtubeUrl: string;
-    releaseDate: string;
-
+    readonly title: string;
+    readonly artist: string;
+    readonly youtubeUrl: string;
+    readonly releaseDate: Date;
 }

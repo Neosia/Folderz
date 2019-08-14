@@ -15,6 +15,6 @@ export class Song {
     @Column({ length: 100 })
     youtubeUrl:string;
 
-    @Column('date') 
-    realeaseDate:Date;
+    @Column({type :'date'}) 
+    releaseDate:Date;
 }

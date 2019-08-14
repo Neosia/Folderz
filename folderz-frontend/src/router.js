@@ -26,13 +26,22 @@ export default new Router({
     {
       path: '/songs',
       name: 'songs',
-      component: () => import('./views/Songs.vue')
-    }
-    ,
+      component: () => import('./views/Song/Songs.vue')
+    },
     {
       path: '/songs/addSong',
       name: 'newSong',
-      component: () => import('./views/AddSong.vue')
+      component: () => import('./views/Song/AddSong.vue')
+    },
+    {
+      path: '/songs/searchSong',
+      name: 'searchSong',
+      component: () => import('./views/Song/SearchSong.vue')
+    },
+    {
+      path: '/songs/allSongs',
+      name: 'allSongs',
+      component: () => import('./views/Song/SongList.vue')
     }
   ]
 })
