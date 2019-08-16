@@ -30,10 +30,11 @@ export default {
 
 <style scoped>
     .song-item{
-        background-color: white;                     
-        margin-top: 30px;        
-        box-shadow: 0px 0px 5px 5px rgba(189, 189, 189, 0.445);
+        background-color: rgb(0, 0, 0);                     
+        margin-top: 5px;        
         padding: 0px !important;
+        color: white;
+        cursor: pointer;
     }
 
     .song-item img{
@@ -44,6 +45,9 @@ export default {
 
     .song-item:hover{
         opacity: 0.5;
+    }
+    .infos{
+        margin-top: 20px;
     }
 
     .infos p {

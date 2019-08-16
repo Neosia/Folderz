@@ -23,9 +23,10 @@
 
 <style>
     .playlist-item{
-        background-color: white;                     
+        background-color: rgb(0, 0, 0);                     
         margin-bottom: 30px;
-        box-shadow: -9px 9px 8px -5px rgba(166,164,166,1);
+        box-shadow: -9px 9px 8px -5px rgb(0, 0, 0);
+        cursor: pointer;
     }
 
     .playlist-item:hover{
@@ -38,8 +39,9 @@
     }
 
     .legend {
-        color: rgb(255, 145, 0);
+        color: rgb(255, 255, 255);
         vertical-align: middle;
         padding: 5px; 
+        font-weight: bold;
     }
 </style>

@@ -38,6 +38,6 @@
 
 <style scoped>
     .songs-list {
-        margin: auto;
+        margin: 0px;
     }
 </style>

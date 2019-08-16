@@ -1,7 +1,9 @@
 <template>
-  <div id="app">
-    <NavBar></NavBar>
-    <router-view />
+  <div id="app" class="container-fluid">   
+    <div class="row appContainer"> 
+      <NavBar class="navigationBar"></NavBar>
+      <router-view class="mainView"/>
+    </div>
   </div>
 </template>
 
@@ -35,6 +37,21 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  height: 100%;
 }
+
+.appContainer {
+    padding: 0px !important;
+    height: 100%;    
+}
+
+.navigationBar{
+  width: 2%;
+}
+
+.mainView{
+  width: 98%;
+}
+
 
 </style>

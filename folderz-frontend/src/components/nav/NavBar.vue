@@ -1,24 +1,29 @@
 <template>
-    <b-navbar variant="light" type="light">
-      <b-navbar-brand href="/" :class="{brandActive: brandActiveVar}">Folderz</b-navbar-brand>      
-      <b-collapse id="nav-collapse" is-nav>
-        <b-nav>
-          <NavLink v-for="item in navLinks" :key="item.route" :nLink="item">{{ item.name }}</NavLink>
-        </b-nav>
-      </b-collapse>
-    </b-navbar>
+    <ul class="navbarCustom">
+        <li class="navLink" v-for="item in navLinks" :key="item.route">
+            <router-link :to="item.route"><font-awesome-icon :icon="item.icon"/></router-link>
+        </li>            
+    </ul>
 </template>
 
 
 <script>
-    import NavLink from "./NavLink.vue";
+    import Vue from 'vue';
+    import { library } from '@fortawesome/fontawesome-svg-core';
+    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+    import { faStream, faMusic, faHome } from '@fortawesome/free-solid-svg-icons'
+    
+    library.add(faStream, faMusic, faHome);
+    
+    Vue.component('font-awesome-icon', FontAwesomeIcon);
 
     export default {
     data() {
         return {
-        navLinks: [     
-            { route: "/playlist", name: "Playlist" },
-            { route: "/songs", name: "Songs" }
+        navLinks: [  
+            { route: "/", name: "Home", icon:"home"},
+            { route: "/playlist", name: "Playlist", icon:"stream"},
+            { route: "/songs", name: "Songs", icon:"music" }
         ]
         };
     },
@@ -26,30 +31,38 @@
         brandActiveVar : function() {        
             return this.$route.path == '/';
         }
-    },
-    components: {
-        NavLink
     }
     };
 </script>
 
-<style>
-    .navbar .navbar-brand{
-        color: black !important;
-        font-weight: bold;
-        font-size: 2em;
+<style scoped>
+    .navbarCustom{
+        background-color: rgb(0, 0, 0) !important;
+        padding: 0px;
+        margin: 0px;
+    }
+    li{
+        list-style-type: none;
+        padding: 10px 0 10px 0px;
+        border-bottom: 1px solid #222;
+        text-align: center;
+        cursor: pointer;
+    }
+    a{
+        color: #aaa;
+        text-decoration: none;
+        padding: 10px 10px;
+    }
+    li:hover, .active{
+        background: #222;
+        opacity: 1;
+    }
+    img{
+        width: 30px;
+        opacity: 0.6;
+    }
+    li:hover img, .active img{
+        opacity: 1;
     }
 
-    nav a {
-        color: black;
-    }
-    
-    .navbar a.router-link-active {
-        color: rgb(255, 145, 0);
-        font-weight: bold;
-    }
-
-    .navbar .navbar-brand.brandActive {
-        color: rgb(255, 145, 0) !important;
-    }
 </style>
