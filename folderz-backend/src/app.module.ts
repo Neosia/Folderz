@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { SongModule } from './song/song.module';
+import { YoutubeSearchModule } from './youtube-search/youtube-search.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -15,7 +16,8 @@ import { SongModule } from './song/song.module';
       "entities": ["src/**/**.entity{.ts,.js}"],
       "synchronize": true
     }),
-    SongModule
+    SongModule,
+    YoutubeSearchModule
   ],
   controllers: [AppController],
   providers: [AppService],

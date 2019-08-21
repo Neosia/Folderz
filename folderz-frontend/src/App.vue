@@ -46,11 +46,11 @@ export default {
 }
 
 .navigationBar{
-  width: 2%;
+  width: 5%;
 }
 
 .mainView{
-  width: 98%;
+  width: 95%;
 }
 
 

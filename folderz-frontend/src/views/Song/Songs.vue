@@ -3,7 +3,6 @@
         <div class="row">
             <router-link class="col-2 menuSong" to="/songs/allSongs">All songs</router-link>
             <router-link class="col-2 menuSong" to="/songs/addSong">New Song</router-link>
-            <router-link class="col-2 menuSong" to="/songs/searchSong">Search Song</router-link>
         </div>
         <router-view/>
     </div>

@@ -11,9 +11,9 @@
     import Vue from 'vue';
     import { library } from '@fortawesome/fontawesome-svg-core';
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-    import { faStream, faMusic, faHome } from '@fortawesome/free-solid-svg-icons'
+    import { faStream, faMusic, faHome, faSearch } from '@fortawesome/free-solid-svg-icons'
     
-    library.add(faStream, faMusic, faHome);
+    library.add(faStream, faMusic, faHome, faSearch);
     
     Vue.component('font-awesome-icon', FontAwesomeIcon);
 
@@ -23,7 +23,8 @@
         navLinks: [  
             { route: "/", name: "Home", icon:"home"},
             { route: "/playlist", name: "Playlist", icon:"stream"},
-            { route: "/songs", name: "Songs", icon:"music" }
+            { route: "/songs/allSongs", name: "Songs", icon:"music" },
+            { route: "/songs/searchSong", name: "Search", icon:"search" }
         ]
         };
     },
@@ -37,9 +38,10 @@
 
 <style scoped>
     .navbarCustom{
-        background-color: rgb(0, 0, 0) !important;
+        background-color: rgb(255, 255, 255) !important;
         padding: 0px;
         margin: 0px;
+        box-shadow: 9px 0px 8px -5px rgb(150, 150, 150);
     }
     li{
         list-style-type: none;
@@ -49,12 +51,12 @@
         cursor: pointer;
     }
     a{
-        color: #aaa;
+        color: rgb(0, 75, 50);
         text-decoration: none;
         padding: 10px 10px;
     }
     li:hover, .active{
-        background: #222;
+        background: rgb(204, 204, 204);
         opacity: 1;
     }
     img{
