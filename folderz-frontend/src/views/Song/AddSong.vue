@@ -72,6 +72,11 @@
           this.show = true
         })
       }
+    }, 
+    mounted() {
+      if(this.$route.params.YtUrlPosted){
+        this.form.ytUrl = this.$route.params.YtUrlPosted;
+      }
     }
   }
 </script>

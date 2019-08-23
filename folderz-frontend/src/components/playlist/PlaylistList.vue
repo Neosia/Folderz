@@ -35,7 +35,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     .playlist-list{
         margin: auto;
     }

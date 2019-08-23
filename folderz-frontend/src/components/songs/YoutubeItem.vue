@@ -5,8 +5,10 @@
             <p class="song-title" v-html="result.snippet.title"></p>
             <p class="channelDate">{{result.snippet.channelTitle}} | {{result.snippet.publishedAt | formatDate}}</p>
         </div> 
-        <div class="col-3 button-add-div" @click="addSong()">
-            <button id="button-add"  type="submit"><font-awesome-icon icon="plus"></font-awesome-icon></button>
+        <div class="col-3 button-new-div">            
+            <router-link id="button-new" :to="{ name : 'newSong', params : { YtUrlPosted : urlFromId} }">
+                <font-awesome-icon icon="plus"></font-awesome-icon>
+            </router-link>
         </div>
     </div>
 </template>
@@ -33,17 +35,14 @@ export default {
     filters : {
         formatDate : function(value) {
             if (value) {
-                return moment(String(value)).format('DD/MM/YYYY hh:mm');
+                return moment(String(value)).format('DD/MM/YYYY');
             }
         }
     },
-    methods : {
-        addSong() {
-            alert('ADD');
-        },
-        preview() {
-            alert("Preview");
-        }
+    computed : {
+        urlFromId : function() {
+            return 'https://www.youtube.com/watch?v=' + this.result.id.videoId;
+        }        
     }
 }
 </script>
@@ -51,7 +50,7 @@ export default {
 
 <style scoped>
     .youtube-item{
-        margin-bottom: 10px;
+        margin-bottom: 10px;        
     }
 
     .youtube-item:hover{
@@ -68,23 +67,30 @@ export default {
         margin: 0px;
     }
     .song-title{   
-        font-size: 1.2em;     
+        font-size: 1.2em; 
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-wrap: break-word;  
+        max-height: 2.4em; /* (Number of lines you want visible) * (line-height) */
+        line-height: 1.2em; 
     }
     .channelDate{
         font-weight: 0.8em;
         color: rgb(105, 105, 105);
     }
-    #button-add{
+    #button-new{
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 100%;
         height: 100%;
-        background-color: rgb(189, 189, 189);
-        border: none;
+        color: white;
+        background-color: rgb(189, 189, 189);        
     }
-    #button-add:hover{
+    #button-new:hover{
         background-color: rgb(0, 75, 50);
     }
-
-    .button-add-div {
+    .button-new-div {
         padding: 0px;
     }
 

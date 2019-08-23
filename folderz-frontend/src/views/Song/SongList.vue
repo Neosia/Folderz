@@ -12,6 +12,7 @@
     import SongListItem from '@/components/songs/SongListItem.vue'
     import Axios from 'axios';
     import { server } from "../../helper";
+    import { getIdFromURL } from 'vue-youtube-embed';
 
     export default {
         data() {
@@ -28,9 +29,10 @@
             SongListItem
         }, 
         methods : {
-            playsong : function(songId) {
+            playsong(songId) {
                 this.playerSongId = songId;
                 this.$modal.show('ytPlayer');
+                this.$emit("playSong", this.songs.find(x => getIdFromURL(x.youtubeUrl) == songId));
             }
         }
     }
