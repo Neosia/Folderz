@@ -31,7 +31,7 @@
         methods : {
             playsong(songId) {
                 this.playerSongId = songId;
-                this.$modal.show('ytPlayer');
+                //this.$modal.show('ytPlayer');
                 this.$emit("playSong", this.songs.find(x => getIdFromURL(x.youtubeUrl) == songId));
             }
         }

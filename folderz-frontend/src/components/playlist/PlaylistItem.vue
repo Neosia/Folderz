@@ -1,7 +1,7 @@
 <template>
     <div class="col-2 photobox_type3">
         <div class="playlist-item photobox__preview photobox__previewbox" @click="$emit('playlistClicked', playlist.id)">
-            <img src="@/../public/resources/playlist.jpg"/> 
+            <img :src="playlist.images[0].url"/> 
             <div class="legend">{{playlist.name}}</div>      
         </div>
         

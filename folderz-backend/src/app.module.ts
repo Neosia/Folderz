@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { SongModule } from './song/song.module';
 import { YoutubeSearchModule } from './youtube-search/youtube-search.module';
+import { SpotifyApiModule } from './spotify-api/spotify-api.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -17,7 +18,8 @@ import { YoutubeSearchModule } from './youtube-search/youtube-search.module';
       "synchronize": true
     }),
     SongModule,
-    YoutubeSearchModule
+    YoutubeSearchModule,
+    SpotifyApiModule
   ],
   controllers: [AppController],
   providers: [AppService],

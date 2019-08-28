@@ -19,9 +19,24 @@ export default new Router({
       component: () => import('./views/About.vue')
     },
     {
+      path: '/login',
+      name: 'login',
+      component: () => import('./views/Login.vue')
+    },
+    {
+      path: '/login/logged',
+      name: 'logged',
+      component: () => import('./views/Account.vue')
+    },
+    {
       path: '/playlist',
       name: 'playlist',
       component: () => import('./views/Playlist.vue')
+    },
+    {
+      path: '/playlist/:id',
+      name: 'playlistSongs',
+      component: () => import('./views/PlaylistSongs.vue')
     },
     {
       path: '/songs',
@@ -43,6 +58,11 @@ export default new Router({
       path: '/songs/allSongs',
       name: 'allSongs',
       component: () => import('./views/Song/SongList.vue')
+    },
+    {
+      path: '/errorLogin',
+      name: 'ErrorLogin',
+      component: () => import('./views/ErrorLogin.vue')
     }
   ]
 })

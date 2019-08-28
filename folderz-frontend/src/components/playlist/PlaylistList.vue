@@ -9,26 +9,23 @@
 
 <script>
     import PlaylistItem from './PlaylistItem.vue';
+    import Axios from 'axios';
+    import { server } from "../../helper";
 
     export default {
         data(){
             return {
                 playlists : [
-                    {id: 1, name: "Summer Party"},
-                    {id: 2, name: "Chill"},
-                    {id: 3, name: "Night"},
-                    {id: 4, name: "Road Trip"},
-                    {id: 5, name: "Rock"},
-                    {id: 6, name: "Rap"},
-                    {id: 7, name: "Pop"},   
-                    {id: 8, name: "RnB"},
                 ]
             }
         },
         components : { PlaylistItem },
+        created() {
+            Axios.get(`${server.baseURL}/spotify-api/allPlaylist/${this.$cookie.get('user_access_token')}`).then(data => this.playlists = data.data.items);
+        },
         methods: {
             onPlaylistClick(idPlaylist) {
-                alert(this.playlists.find(x => x.id === idPlaylist).name);
+                this.$router.push({ name: "playlistSongs" , params : {id : idPlaylist}});
             }
         }
 

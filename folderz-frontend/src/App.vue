@@ -18,6 +18,7 @@ import Player from "./components/player/Player.vue";
 import BootstrapVue from "bootstrap-vue";
 import VModal from 'vue-js-modal';
 import VueYouTubeEmbed from 'vue-youtube-embed'
+import VueCookie from 'vue-cookie';
 
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
@@ -25,6 +26,7 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 Vue.use(VueYouTubeEmbed)
 Vue.use(BootstrapVue);
 Vue.use(VModal);
+Vue.use(VueCookie);
 
 export default {  
   components: {
@@ -39,7 +41,7 @@ export default {
   methods : {
       playSong : function(song){          
           this.mainViewH = '85';
-          this.$refs.mainPlayer.updatePlayer(song);
+          this.$refs.mainPlayer.initPlayer(song);
       }
   }
 

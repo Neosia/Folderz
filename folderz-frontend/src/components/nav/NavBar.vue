@@ -11,9 +11,9 @@
     import Vue from 'vue';
     import { library } from '@fortawesome/fontawesome-svg-core';
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-    import { faStream, faMusic, faHome, faSearch } from '@fortawesome/free-solid-svg-icons'
+    import { faStream, faMusic, faHome, faSearch, faUser } from '@fortawesome/free-solid-svg-icons'
     
-    library.add(faStream, faMusic, faHome, faSearch);
+    library.add(faStream, faMusic, faHome, faSearch, faUser);
     
     Vue.component('font-awesome-icon', FontAwesomeIcon);
 
@@ -24,7 +24,8 @@
             { route: "/", name: "Home", icon:"home"},
             { route: "/playlist", name: "Playlist", icon:"stream"},
             { route: "/songs/allSongs", name: "Songs", icon:"music" },
-            { route: "/songs/searchSong", name: "Search", icon:"search" }
+            { route: "/songs/searchSong", name: "Search", icon:"search" },
+            { route: "/login", name: "Login", icon:"user"}
         ]
         };
     },

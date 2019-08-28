@@ -1,30 +1,27 @@
 <template>
-    <div class="row song-item" @click="$emit('playClicked', songId)">
-        <img class="col-1" :src="'https://img.youtube.com/vi/' + songId + '/0.jpg'"/>
+    <div class="row song-item">
+        <img class="col-1" :src="song.track.album.images[0].url"/>
         <div class="col-3 infos">
-            <p class="song-title">{{song.title}}</p>
-            <p>{{song.artist}}</p>
-            <p>{{song.releaseDate}}</p>
+            <p class="song-title">
+                {{song.track.name}}
+            </p>
+            <p>
+                <span v-for="artist in song.track.artists" :key="artist.id">
+                    {{artist.name}} 
+                </span>
+            </p>
+            <p>{{song.track.album.release_date}}</p>
         </div>        
     </div>
 </template>
 
 <script>
-import { getIdFromURL } from 'vue-youtube-embed';
-
-
 export default {
     props : {
         song : {
             type : Object
         }
-    },
-    computed : {
-        songId : function() {
-            return getIdFromURL(this.song.youtubeUrl);
-        }        
-    }
-    
+    }    
 }
 </script>
 
